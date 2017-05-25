@@ -1,0 +1,16 @@
+# shinyapps
+AREA = function(height,weight,base){
+  return(height*weight*base)
+}
+
+shinyServer(
+  function(input, output) {
+    output$oht <- renderPrint({input$ht})
+    output$owt <- renderPrint({input$wt})
+    output$ot <- renderPrint({input$at})
+    
+    output$prediction <- renderPrint({AREA(input$ht, input$wt,input$at)})
+    
+    
+  }
+)
